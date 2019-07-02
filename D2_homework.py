@@ -27,7 +27,7 @@ first = "Sun"
 second = "is"
 third = "setting."
 
-print(f"{first} + \n\t + {second} + \n\t + {third}")
+print(first + "\n\t" + second + "\n\t\t" + third)
 print(f"{first}\n\t{second}\n\t\t{third}")
 
 
