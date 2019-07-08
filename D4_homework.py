@@ -1,4 +1,4 @@
-0# 1 ####################################################################################################################
+# 1 ####################################################################################################################
 # Napisz funkcję, która przyjmuje dowolną ilość parametrów - zaloz ze beda podawane liczbowe, funkcja ma wypisywac te
 # parametry, uzywajac petli for in
 
