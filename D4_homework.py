@@ -44,18 +44,103 @@ sentence = input("Podaj zdanie:")
 
 
 def split_sentence_to_words(sentence):
+    """ Def divides sentence to words and return them as a list of words."""
     words = sentence.split(" ")
     return words
 
 
 def sort_words(words):
+    """ Def orders list of words alphabetically. """
     words.sort()
     return words
 
 
 print(sort_words(split_sentence_to_words(sentence)))
-
+print(split_sentence_to_words.__doc__)
+print(sort_words.__doc__)
 
 # 5 ####################################################################################################################
 # (optional) Zaimportuj modul (plik) i uzyj funkcji z tego modulu
 #  help(nazwa_pliku) - zadokumentuj troche kodu!
+
+### PART II
+
+# 1 ####################################################################################################################
+# stwórz kilka zmiennych różnych typów - int, float, boolean, string
+# 2 za pomocą funkcji print() wypisz wartości powyższych zmiennych, podając ich typ (użyj funkcji type)
+# pamiętaj o formatowaniu i znakach specjalnych, najlepiej aby pokazywać wartości wraz z typami zmiennych
+# w nowej linii
+
+string = 'Ala ma kota'
+number = 45
+floating_point = 5.2
+
+print(f"{string} to typ: {type(string)}\n{number} to typ: {type(number)}\n{floating_point} to typ: {type(floating_point)}")
+
+
+# 3 ####################################################################################################################
+# Wypisz zmienną typu float - dobrym przykladem bedzie liczba 1/17
+# z dokładnością do 4 miejsc po przecinku
+# https://stackoverflow.com/questions/8885663/how-to-format-a-floating-number-to-fixed-width-in-python
+
+number = 1/17
+
+print("{:6.4f}".format(number))
+
+
+# 4 ####################################################################################################################
+# Indeksowanie (slajd dzien 3 od strony 4)
+# stwórz nową zmienną typu string oraz zmienną pomocniczą, do której przy pomocy indeksowania,
+# przypiszesz odwrócony string pierwszej zmiennej (możesz przejrzeć slajd 4 z prezentacji dnia 3 i sprawdzic np w konsoli
+# które indeksowanie odwraca)
+
+my_string = "banan"
+my_string_backwords = my_string[::-1]
+
+print(my_string,my_string_backwords)
+
+
+# 5 ####################################################################################################################
+# rozszerz zadanie 4 - sprawdź czy string jest palindromem
+
+if my_string == my_string_backwords:
+    print("palindrome")
+else:
+    print("not a palindrome")
+
+
+# 6 ####################################################################################################################
+# przy pomocy funkcji input() rozszerz zadanie 5 tak aby uzytkownik wpisał słowo i program powiedział,
+# czy wisane slowo jest palindromem
+
+word = input("Enter word: ")
+rev_word = word[::-1]
+
+if word == rev_word:
+    print("palindrome")
+else:
+    print("not a palindrome")
+
+
+# 7 ####################################################################################################################
+# wykorzystaj funkcje input() i zagraj z uzytkownikiem programu w grę RPG
+# Poinformuj użytkownika że stoi na rozdrozu - moze isc prosto, w lewo, lub w prawo
+# aby pójść prosto - musi wpisać "straight", w lewo - "left", w prawo = "right"
+# w zależności od wyboru ścieżki, poinformuj użytkownika kogo spotkał (dla Twojej wyobraźni sky is the limit)
+# jeżeli użytkownik nie wpisał poprawnie kierunku - napisz że nie umie się grać...
+# (do rozwiazania przyda się if elif else)
+
+pleyer_input = input("pleyer2 input:")
+
+prosto = "straight"
+lewo = "left"
+prawo = "right"
+
+if pleyer_input == prosto:
+    print("You went straight & you met Gandalf")
+elif pleyer_input == lewo:
+    print("You went left & you met your boss")
+elif pleyer_input == prawo:
+    print("You went right & you met your mother")
+else:
+    print("You don't know how to play")
