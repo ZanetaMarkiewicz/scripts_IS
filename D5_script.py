@@ -96,6 +96,7 @@ print(occurs_once(list_a))
 ## RANDOM EXERCISE #####################################################################################################
 # program usuwajacy zduplikowane wartosci w liscie (w miejscu! - tzn bez drugiej listy)
 # podpowiedz - del lub pop()
+
 list_b = [10,20,30,20,10,50,60,40,80,50,40]
 
 list_b = set(list_b)
@@ -120,6 +121,8 @@ def list_checker(list_a):
 
 print(list_checker(list_a))
 
+
+## RANDOM EXERCISE #####################################################################################################
 # stworz macierz (4 x 5), ktorej wszystkie komorki wypelnione sa znakiem *
 
 def matrix():
@@ -132,6 +135,18 @@ def matrix():
     return result
 
 print(matrix())
+
+
+## RANDOM EXERCISE #####################################################################################################
+# wybierz losowo element z listy  wskazowka - import random
+
+
+## RANDOM EXERCISE #####################################################################################################
+# oblicz częstość elementów w liście (ile razy) jedna wersja zwykla pętle, ify itd, druga - moze jest jakis modul gotowy???
+
+my_list = [10,10,20,10,10,20,10,20,20,20,40,50,40,10,30,50,50,30]
+
+
 
 
 ## RANDOM EXERCISE #####################################################################################################
