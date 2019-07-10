@@ -9,6 +9,7 @@ def zmien_imie():
 
 print(imie)
 
+
 ## RANDOM EXERCISE #####################################################################################################
 # napisz funkcję sumujący wszystkie elementy w liscie
 
@@ -20,6 +21,7 @@ def my_function_sum(*args):
 
 print(my_function_sum(1,2,3,4,5,6,7,8,9,100))
 print(my_function_sum.__doc__)
+
 
 ## RANDOM EXERCISE #####################################################################################################
 # znajdz najwiekszy / najmniejszy element w liscie - napisz dwie funkcje
@@ -34,7 +36,7 @@ def find_max_min1(testing_list):
     min = testing_list[0]
     return max, min
 
-print(find_max_min1(testing_list))
+print(f"max , min value: {find_max_min1(testing_list)}")
 
 # 2nd solution
 def find_max_min2(testing_list):
@@ -42,7 +44,7 @@ def find_max_min2(testing_list):
     min_value = min(testing_list)
     return max_value, min_value
 
-print(find_max_min2(testing_list))
+print(f"max , min value: {find_max_min2(testing_list)}")
 
 
 ## RANDOM EXERCISE #####################################################################################################
@@ -56,6 +58,7 @@ def sentence_split(sentence):
     return new_list
 
 print(sentence_split(sentence))
+
 
 ## RANDOM EXERCISE #####################################################################################################
 # napisz funckję przyjmujaca liste stringow,
@@ -96,6 +99,7 @@ print(occurs_once(list_a))
 ## RANDOM EXERCISE #####################################################################################################
 # program usuwajacy zduplikowane wartosci w liscie (w miejscu! - tzn bez drugiej listy)
 # podpowiedz - del lub pop()
+
 list_b = [10,20,30,20,10,50,60,40,80,50,40]
 
 list_b = set(list_b)
@@ -120,6 +124,8 @@ def list_checker(list_a):
 
 print(list_checker(list_a))
 
+
+## RANDOM EXERCISE #####################################################################################################
 # stworz macierz (4 x 5), ktorej wszystkie komorki wypelnione sa znakiem *
 
 def matrix():
@@ -132,6 +138,41 @@ def matrix():
     return result
 
 print(matrix())
+
+
+## RANDOM EXERCISE #####################################################################################################
+# wybierz losowo element z listy  wskazowka - import random
+
+import random
+
+orig_list = [13, 8, 11, 14, 15, 5, 10, 12, 16, 6, 8, 6, 18, 7, 16, 13, 3, 4, 5, 17]
+random_list = random.sample(orig_list,10)
+print(random_list)
+
+
+## RANDOM EXERCISE #####################################################################################################
+# oblicz częstość elementów w liście (ile razy) jedna wersja zwykla pętle,
+# ify itd, druga - moze jest jakis modul gotowy???
+
+# 1ST SOLUTION
+
+my_list = [10,10,20,10,10,20,10,20,20,20,40,50,40,10,30,50,50,30]
+my_list_uniq = set(my_list)
+
+for i in my_list_uniq:
+    if i in my_list:
+        icount = my_list.count(i)
+    print(i, icount)
+
+
+# 2ND SOLUTION
+
+my_list = [10,10,20,10,10,20,10,20,20,20,40,50,40,10,30,50,50,30]
+
+from collections import Counter
+
+new_list = Counter(my_list)
+print(new_list)
 
 
 ## RANDOM EXERCISE #####################################################################################################

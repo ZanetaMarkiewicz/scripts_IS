@@ -1,3 +1,4 @@
+### PART I
 # 1 ####################################################################################################################
 # Napisz funkcję, która przyjmuje dowolną ilość parametrów - zaloz ze beda podawane liczbowe, funkcja ma wypisywac te
 # parametry, uzywajac petli for in
@@ -58,6 +59,7 @@ def sort_words(words):
 print(sort_words(split_sentence_to_words(sentence)))
 print(split_sentence_to_words.__doc__)
 print(sort_words.__doc__)
+
 
 # 5 ####################################################################################################################
 # (optional) Zaimportuj modul (plik) i uzyj funkcji z tego modulu
@@ -130,17 +132,82 @@ else:
 # jeżeli użytkownik nie wpisał poprawnie kierunku - napisz że nie umie się grać...
 # (do rozwiazania przyda się if elif else)
 
-pleyer_input = input("pleyer2 input:")
+player_input = input("player input:")
 
 prosto = "straight"
 lewo = "left"
 prawo = "right"
 
-if pleyer_input == prosto:
+if player_input == prosto:
     print("You went straight & you met Gandalf")
-elif pleyer_input == lewo:
+elif player_input == lewo:
     print("You went left & you met your boss")
-elif pleyer_input == prawo:
+elif player_input == prawo:
     print("You went right & you met your mother")
 else:
-    print("You don't know how to play")
+    print("You don't know how to play ... ")
+
+
+# 8 ####################################################################################################################
+# rozszerz zadanie 7 w taki sposób, aby zachęcić użytkownika jeszcze raz do wyboru ścieżki, jeżeli nie wpisał komendy
+# poprawnie, (przyda się pętla while - mozesz zatrzymać skrypt ręcznie jeżeli w czasie wykonywania się zapętlił nie tak
+# jak powinien)
+
+player_input = input("player input:")
+
+prosto = "straight"
+lewo = "left"
+prawo = "right"
+
+while True:
+    if player_input == prosto:
+        print("You went straight & you met Gandalf")
+        break
+    elif player_input == lewo:
+        print("You went left & you met your boss")
+        break
+    elif player_input == prawo:
+        print("You went right & you met your mother")
+        break
+    else:
+        print("You entered wrong instruction. Try again!")
+        player_input = input("player input:")
+
+
+# 9 ####################################################################################################################
+# Klasa range - przy użyciu pętli for in oraz użyciu range, wypisz tylko liczby podzielne przez 7 w zakresie 0-77
+# wskazówka: przyda się warunek if oraz modulo %
+# 4 % 2 == 0 -> true
+
+for number in range(0, 77):
+    if number % 7 == 0:
+        print(number)
+
+
+# 10 ###################################################################################################################
+# wygeneruj 2 listy liczb o tych samych rozmiarach, ale różnych wartościach
+
+import random
+
+# list_1 = list(range(1, 10))
+# list_2 = list(range(10, 19))
+
+list_1 = random.sample(range(1, 20), 10)
+list_2 = random.sample(range(1, 20), 10)
+
+print(list_1)
+print(list_2)
+
+
+# 11 ###################################################################################################################
+# stwórz nową listę, używając dwóch
+# list z zadania 10. lista ma zawierać liczby z listy pierwszej podniesione przemnozone przez liczbę o tym samym
+# indeksie z listy drugiej# [1, 2, 3]
+# [3, 8, 2]
+# -> [3, 16, 6]
+
+list_3 = []
+
+for i1, i2 in zip(list_1, list_2):
+    list_3.append(i1 * i2)
+print(list_3)
