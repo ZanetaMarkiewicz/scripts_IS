@@ -102,8 +102,20 @@ print(occurs_once(list_a))
 
 list_b = [10,20,30,20,10,50,60,40,80,50,40]
 
+# 1st solution
 list_b = set(list_b)
+print(list_b)
 
+# 2nd solution
+for i in list_b:
+    if list_b.count(i) != 1:
+        list_b.remove(i)
+print(list_b)
+
+# 3rd solution
+for idx, val in enumerate(list_b):
+    if list_b.count(val) != 1:
+        list_b.pop(idx)
 print(list_b)
 
 
