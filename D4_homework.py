@@ -187,13 +187,8 @@ for number in range(0, 77):
 # 10 ###################################################################################################################
 # wygeneruj 2 listy liczb o tych samych rozmiarach, ale różnych wartościach
 
-import random
-
-# list_1 = list(range(1, 10))
-# list_2 = list(range(10, 19))
-
-list_1 = random.sample(range(1, 20), 10)
-list_2 = random.sample(range(1, 20), 10)
+list_1 = list(range(1, 10))
+list_2 = list(range(10, 19))
 
 print(list_1)
 print(list_2)
