@@ -225,9 +225,15 @@ with open(r"D:\!_Python_trainig\scripts_IS\article.txt", "r") as art_plik:
 # na koncu programu zapisz slownik ponownie do pliku pickle, aby zapisac zmiany
 
 import pickle
+import os
 
-with open("D:\!_Python_trainig\scripts_IS\words_dict.pckl", "rb") as pckl_plik:
-    words_dict = pickle.load(pckl_plik)
+path = "D:\!_Python_trainig\scripts_IS\words_dict.pckl"
+
+if os.path.isfile(path):
+    with open(path, "rb") as pckl_plik:
+        words_dict = pickle.load(pckl_plik)
+else:
+    print("Plik nie istnieje!")
 
 zapytanie = (input("Czy chcesz dodac wpis do slownika?")).upper()
 
@@ -238,5 +244,5 @@ if zapytanie == "TAK":
 else:
     print("niepoprawny input")
 
-with open("D:\!_Python_trainig\scripts_IS\words_dict.pckl", "wb") as pckl_plik:
+with open(path, "wb") as pckl_plik:
     pickle.dump(words_dict, pckl_plik)
