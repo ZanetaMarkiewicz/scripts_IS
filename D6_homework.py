@@ -1,3 +1,4 @@
+# from Trainings #######################################################################################################
 # 0 ####################################################################################################################
 # jako prace domową - przejrzyj zadania - examples z folderu Trainings - przykłady nie zaczynaja sie od numeru
 # oraz rozwiaz zadania z folderu Trainings (pliki zaczynajace sie od numerow)
@@ -146,6 +147,7 @@ def pole_kwadratu(bok):
 print("Pole kwadratu wynosi: ", pole_kwadratu(bok))
 
 
+# from homework_3.py ###################################################################################################
 # 1 ####################################################################################################################
 # stwórz słownik, którego kluczem będą słowa, natomiast wartością znaczenie tych słów
 # może być słownik miejskiego slangu ;)
@@ -195,6 +197,7 @@ with open("D:\!_Python_trainig\scripts_IS\words_dict.pckl", "rb") as pckl_plik:
     odczyt_slownika = pickle.load(pckl_plik)
 
 print(odczyt_slownika)
+
 
 # 5 ####################################################################################################################
 # odczytaj plik article.txt w calosci - plik umieszczony w Day5\exercises\article.txt
