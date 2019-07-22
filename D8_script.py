@@ -65,3 +65,9 @@ s.login('isapy@o2.pl', 'isapython')
 #na wiadomość zgodną z RFC do wysłania wiadomośći
 s.sendmail(msg['From'], [msg['To']], msg.as_string())
 
+import fme
+
+def __init__(self):
+    self.increment = 0
+    self.log_counter = 0
+    self.incr_duplicates = 0
