@@ -7,8 +7,7 @@
 # oblicz czy rok jest przestępny
 # podzielny przez 4, nie podzielny przez 100 ale podzielny przez 400
 
-year = input("Enter year: ")
-year = int(year)
+year = int(input("Enter year: "))
 
 if (year % 4 == 0 and year % 100 != 0) or year % 400 == 0:
     print("This is a leap year")
@@ -26,7 +25,7 @@ bok_a = int(input("Podaj bok a: "))
 bok_b = int(input("Podaj bok b: "))
 bok_c = int(input("Podaj bok c: "))
 
-if (bok_a < bok_b + bok_c) and (bok_b < bok_c + bok_a) and (bok_c < bok_a + bok_b ):
+if (bok_a < bok_b + bok_c) and (bok_b < bok_c + bok_a) and (bok_c < bok_a + bok_b):
     print("It is possible to create triangle")
     if bok_a == bok_b == bok_c:
         print("This is equilateral triangle")
@@ -46,28 +45,26 @@ if (bok_a < bok_b + bok_c) and (bok_b < bok_c + bok_a) and (bok_c < bok_a + bok_
 input_temp = (input("Enter temperature: ")).upper()
 
 if "F" in input_temp:
-    C = (int(input_temp.replace("F","")) - 32) * (5 / 9)
+    C = round((int(input_temp.replace("F", "")) - 32) * (5 / 9), 2)
     print(f"Input temperature {input_temp} in C is {C}")
 else:
-    F = int(input_temp.replace("C","")) * (9 / 5) + 32
+    F = round((int(input_temp.replace("C", "")) * (9 / 5) + 32), 2)
     print(f"Input temperature {input_temp} in F is {F}")
 
 
 # 0.4 ##################################################################################################################
 # obl. ilość l. parzystych i nieparzystych w zakresie
 
-zakres = range(23746)
+zakres = range(23747)
 
 parzyste = 0
 nieparzyste = 0
-
 
 for liczba in zakres:
     if liczba % 2 == 0:
         parzyste += zakres.count(liczba)
     else:
         nieparzyste += zakres.count(liczba)
-
 
 print(f"Liczb parzystych: {parzyste}, liczb nieparzystych: {nieparzyste}")
 
@@ -77,9 +74,11 @@ print(f"Liczb parzystych: {parzyste}, liczb nieparzystych: {nieparzyste}")
 
 zdanie = input("Podaj jakieś zdanie: ")
 l_samoglosek = ["a", "e", "i", "o", "u", "y", "A", "E", "I", "O", "U", "Y"]
-l_spolglosek = ["b", "c", "d", "f", "g", "h", "j", "k", "l", "m", "n", "p", "q", "r", "s", "t", "v", "w", "x", "z","B", "C", "D", "F", "G", "H", "J", "K", "L", "M", "N", "P", "Q", "R", "S", "T", "V", "W", "X", "Z"]
+l_spolglosek = ["b", "c", "d", "f", "g", "h", "j", "k", "l", "m", "n", "p", "q", "r", "s", "t", "v", "w", "x", "z", "B",
+                "C", "D", "F", "G", "H", "J", "K", "L", "M", "N", "P", "Q", "R", "S", "T", "V", "W", "X", "Z"]
 samogloski = 0
 spolgloski = 0
+inny_znak = 0
 
 for litera in zdanie:
     if litera in l_samoglosek:
@@ -87,7 +86,7 @@ for litera in zdanie:
     elif litera in l_spolglosek:
         spolgloski += 1
     else:
-        print("To nie jest spolgloska ani samogloska. ")
+        inny_znak += 1
 
 print(f"Samoglosek: {samogloski}, spółgłosek: {spolgloski}")
 
@@ -119,7 +118,7 @@ for liczba in zakres:
 
 fibonaccie_list = []
 
-for i in range(0,100):
+for i in range(0, 100):
     if i == 0:
         fibonaccie_list.append(i)
     elif i == 1:
@@ -140,7 +139,7 @@ bok = int(input("Podaj bok kwadratu: "))
 
 
 def pole_kwadratu(bok):
-    pole = bok**2
+    pole = bok ** 2
     return pole
 
 
@@ -165,7 +164,7 @@ print(words_dict)
 # zapisz prosta zawartosc slownika miejskiego slangu do pliku, w kazdej linii klucz - wartosc
 # np kasiora - Opis slowa kasiora, w nowej linii nastepna para
 
-with open("D:\!_Python_trainig\scripts_IS\words_dict.txt", "w") as plik:
+with open(r"D:\!_Python_trainig\scripts_IS\words_dict.txt", "w") as plik:
     for key, value in words_dict.items():
         plik.write(str(key) + " - " + str(value) + "\n")
 
@@ -177,9 +176,9 @@ with open("D:\!_Python_trainig\scripts_IS\words_dict.txt", "w") as plik:
 import csv
 
 with open("D:\!_Python_trainig\scripts_IS\words_dict.csv", newline='', mode="w") as csv_plik:
-        writer = csv.writer(csv_plik, delimiter='|')
-        for key, value in words_dict.items():
-            writer.writerow([key, value])
+    writer = csv.writer(csv_plik, delimiter='|')
+    for key, value in words_dict.items():
+        writer.writerow([key, value])
 
 
 # 4 ####################################################################################################################
@@ -212,7 +211,6 @@ with open(r"D:\!_Python_trainig\scripts_IS\article.txt", "r") as art_plik:
     print(article_content)
     if slowo in article_content:
         liczba_wystapien = article_content.count(slowo)
-        print(liczba_wystapien)
     print(f"Slowo -{slowo}- wystapilo {liczba_wystapien} razy.")
 
 
