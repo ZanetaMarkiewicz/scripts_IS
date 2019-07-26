@@ -15,11 +15,11 @@ print(imie)
 
 
 def my_function_sum(*args):
-    """ Def returs a sum of multiple arguments"""
+    """Def returns a sum of multiple arguments"""
     return sum(args)
 
 
-print(my_function_sum(1,2,3,4,5,6,7,8,9,100))
+print(my_function_sum(1, 2, 3, 4, 5, 6, 7, 8, 9, 100))
 print(my_function_sum.__doc__)
 
 
@@ -27,7 +27,8 @@ print(my_function_sum.__doc__)
 # znajdz najwiekszy / najmniejszy element w liscie - napisz dwie funkcje
 # 2 sposoby - najpierw ręcznie, następnie sprytnie
 
-testing_list = [9,10,2,4,8,6,4,25,37,48]
+testing_list = [9, 10, 2, 4, 8, 6, 4, 25, 37, 48]
+
 
 # 1st solution
 def find_max_min1(testing_list):
@@ -36,13 +37,16 @@ def find_max_min1(testing_list):
     min = testing_list[0]
     return max, min
 
+
 print(f"max , min value: {find_max_min1(testing_list)}")
+
 
 # 2nd solution
 def find_max_min2(testing_list):
     max_value = max(testing_list)
     min_value = min(testing_list)
     return max_value, min_value
+
 
 print(f"max , min value: {find_max_min2(testing_list)}")
 
@@ -57,6 +61,7 @@ def sentence_split(sentence):
     new_list = list(sentence.split(" "))
     return new_list
 
+
 print(sentence_split(sentence))
 
 
@@ -65,13 +70,13 @@ print(sentence_split(sentence))
 # a zwracakaca liczbe stringow dl. min. 2, ktore zaczynaja sie i koncza na te same znaki
 # ['abc', 'xyz', 'aba', '1221'] - odp = 2
 
-string_list = ['dd','a','abca', 'xyz', 'aba', '1221']
+string_list = ['dd', 'a', 'abca', 'xyz', 'aba', '1221']
 
 
 def string_test(string_list):
     string_counter = 0
     for i in string_list:
-        if len(i) > 2 and i[0] == i[-1]:
+        if len(i) >= 2 and i[0] == i[-1]:
             string_counter += 1
     return string_counter
 
@@ -82,11 +87,11 @@ print(string_test(string_list))
 ## RANDOM EXERCISE #####################################################################################################
 # program znajdujacy wartosci, ktre wystepuja tylko raz
 
-list_a = [10,20,30,20,10,50,60,40,80,50,40]
+list_a = [10, 20, 30, 20, 10, 50, 60, 40, 80, 50, 40]
 
 
 def occurs_once(list_a):
-    new_list =[]
+    new_list = []
     for i in list_a:
         if list_a.count(i) == 1:
             new_list.append(i)
@@ -100,7 +105,7 @@ print(occurs_once(list_a))
 # program usuwajacy zduplikowane wartosci w liscie (w miejscu! - tzn bez drugiej listy)
 # podpowiedz - del lub pop()
 
-list_b = [10,20,30,20,10,50,60,40,80,50,40]
+list_b = [10, 20, 30, 20, 10, 50, 60, 40, 80, 50, 40, 40, 20, 10, 10, 10, 10]
 
 # 1st solution
 list_b = set(list_b)
@@ -123,8 +128,8 @@ print(list_b)
 # program sprawdza czy dwie listy maja co najmniej jeden wspolny element,
 # jesli tak wypisuje True
 
-list_a = [10,50,60,40,80,50,40]
-list_b = [10,20,30,20,10,50,60,40,80,50,40]
+list_a = [10, 50, 60, 40, 80, 50, 40]
+list_b = [10, 20, 30, 20, 10, 50, 60, 40, 80, 50, 40]
 
 
 def list_checker(list_a):
@@ -147,7 +152,9 @@ def matrix():
         for j in range(5):
             col.append("*")
         result.append(col)
-    return result
+    for i in result:
+        print(f"{i}\n")
+
 
 print(matrix())
 
@@ -158,7 +165,7 @@ print(matrix())
 import random
 
 orig_list = [13, 8, 11, 14, 15, 5, 10, 12, 16, 6, 8, 6, 18, 7, 16, 13, 3, 4, 5, 17]
-random_list = random.sample(orig_list,10)
+random_list = random.sample(orig_list, 1)
 print(random_list)
 
 
@@ -168,7 +175,7 @@ print(random_list)
 
 # 1ST SOLUTION
 
-my_list = [10,10,20,10,10,20,10,20,20,20,40,50,40,10,30,50,50,30]
+my_list = [10, 10, 20, 10, 10, 20, 10, 20, 20, 20, 40, 50, 40, 10, 30, 50, 50, 30]
 my_list_uniq = set(my_list)
 
 for i in my_list_uniq:
@@ -176,10 +183,9 @@ for i in my_list_uniq:
         icount = my_list.count(i)
     print(i, icount)
 
-
 # 2ND SOLUTION
 
-my_list = [10,10,20,10,10,20,10,20,20,20,40,50,40,10,30,50,50,30]
+my_list = [10, 10, 20, 10, 10, 20, 10, 20, 20, 20, 40, 50, 40, 10, 30, 50, 50, 30]
 
 from collections import Counter
 
@@ -195,6 +201,7 @@ for key, value in simple_dict.items():
     print(f"pod kluczem {key} jest wartosc {value}.")
 
 simple_dict[1] = "trzy"
+simple_dict[3] = "trzy"
 
 for key, value in simple_dict.items():
     print(f"pod kluczem {key} jest wartosc {value}.")
