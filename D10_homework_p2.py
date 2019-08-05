@@ -1,10 +1,21 @@
 from D10_homework_p1 import SpamSender
 
-test_email = SpamSender
-# test_email = SpamSender("isa12python@gmail.com", "isa12python@gmail.com", "iSAforever")
-test_email.sender_email = "isa12python@gmail.com"
-test_email.receiver_email = "isa12python@gmail.com"
-test_email.password = "iSAforever"
-print("wiadomosc zostala wyslana")
-# receiver_email = SpamSender("isa12python@gmail.com")
-# password = SpamSender.("iSAforever")
+receiver_email = ["isa12python@gmail.com", "zaneta.markiewicz.0906@gmail.com"]
+
+text = """\
+<html>
+  <body>
+    <p>Hi,<br>
+       How are you?<br>
+       <a href="https://infoshareacademy.com">InfoShare Academy</a> 
+       has many great courses.
+    </p>
+  </body>
+</html>
+"""
+
+test_email = SpamSender("isa12python@gmail.com", "isa12python@gmail.com", "iSAforever", "H10", text, "smtp.gmail.com",
+                        465)
+test_email.mail_sender()
+
+print("Message has been correctly sent.")

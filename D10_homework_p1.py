@@ -9,59 +9,35 @@
 # i przy użyciu pętli wysłać wiadomość do wszystkich maili z listy :slightly_smiling_face:
 # jest tez w pracach domowych na repozytorium
 
-import smtplib
-import ssl
+import smtplib, ssl
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 
-# Create secure connection with server and send email
 
-
-class SpamSender:
-    def __init__(self, sender_email, receiver_email, password):
+class SpamSender(object):
+    def __init__(self, sender_email, receiver_email, password, title, text, host, port):
         self.sender_email = sender_email
         self.receiver_email = receiver_email
         self.password = password
+        self.title = title
+        self.text = text
+        self.host = host
+        self.port = port
 
     def mail_sender(self):
-        message = MIMEMultipart("alternative")
-        message["Subject"] = "H10"
-        message["From"] = self.sender_email
-        message["To"] = self.receiver_email
+        for email in self.receiver_email:
+            receiver_email = email
 
-        text = """\
-        Hi,
-        How are you?
-        Real Python has many great tutorials:
-        www.realpython.com"""
-        html = """\
-        <html>
-          <body>
-            <p>Hi,<br>
-               How are you?<br>
-               <a href="https://infoshareacademy.com">InfoShare Academy</a> 
-               has many great courses.
-            </p>
-          </body>
-        </html>
-        """
+            message = MIMEMultipart("alternative")
+            message["Subject"] = self.title
+            message["From"] = self.sender_email
+            message["To"] = receiver_email
 
-        part1 = MIMEText(text, "plain")
-        part2 = MIMEText(html, "html")
+            text_part = MIMEText(self.text, "html")
+            message.attach(text_part)
 
-        print("aaaaa")
-        print(text)
-        print(message)
-        print(part1)
-
-
-        # dodaj dwie reprezentacje wiadomosci - najpierw tryb HTML, potem zwykly tekst
-        message.attach(part1)
-        message.attach(part2)
-
-        # context = ssl.create_default_context()
-        server = smtplib.SMTP_SSL('smtp.gmail.com', 465)
-
-        server.login(self.sender_email, self.password)
-        server.sendmail(self.sender_email, self.receiver_email, message.as_string())
-
+            ssl.create_default_context()
+            server = smtplib.SMTP_SSL(self.host, self.port)
+            server.login(self.sender_email, self.password)
+            server.sendmail(self.sender_email, self.receiver_email, message.as_string())
+            # server.quit()
