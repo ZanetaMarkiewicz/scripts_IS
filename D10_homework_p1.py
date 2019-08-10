@@ -15,16 +15,17 @@ from email.mime.multipart import MIMEMultipart
 
 
 class SpamSender(object):
-    def __init__(self, sender_email, receiver_email, password, title, text, host, port):
+    def __init__(self, sender_email, password, receiver_email):
         self.sender_email = sender_email
-        self.receiver_email = receiver_email
         self.password = password
+        self.receiver_email = receiver_email
+
+    def mail_sender(self, title, text, host, port):
         self.title = title
         self.text = text
         self.host = host
         self.port = port
 
-    def mail_sender(self):
         for email in self.receiver_email:
             receiver_email = email
 
@@ -39,5 +40,5 @@ class SpamSender(object):
             ssl.create_default_context()
             server = smtplib.SMTP_SSL(self.host, self.port)
             server.login(self.sender_email, self.password)
-            server.sendmail(self.sender_email, self.receiver_email, message.as_string())
-            # server.quit()
+            server.sendmail(self.sender_email, receiver_email, message.as_string())
+            server.quit()
