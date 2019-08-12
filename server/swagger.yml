@@ -1,0 +1,187 @@
+swagger: "2.0"
+info:
+  description: This is the swagger file with our REST API spec
+  version: "1.0.0"
+  title: Swagger Rest Documentation
+consumes:
+  - application/json
+produces:
+  - application/json
+
+basePath: /api
+# podstawowa sciezka
+
+# Paths supported by the server application
+paths:
+  /album:
+    get:
+      operationId: album.read_all
+      tags:
+        - Albums
+      summary: Gets all the albums, sorted by artist
+      description: Gets all the albums, sorted by artist
+      responses:
+        200:
+          description: Successfully returned albums
+          schema:
+            # typ tablica itemow
+            type: array
+            items:
+              properties:
+                album_id:
+                  type: string
+                  description: Id of the album
+                artist:
+                  type: string
+                  description: Title of the album
+                title:
+                  type: string
+                  description: Title of the album
+                image_url:
+                  type: string
+                  description: Image URL of the album
+                last_edited_at:
+                  type: string
+                  description: Creation/Update timestamp of the album
+
+    post:
+      operationId: album.create
+      tags:
+        - Albums
+      summary: Create an album
+      description: Create an new album
+      parameters:
+        - name: album
+          in: body
+          description: Album to create
+          required: True
+          schema:
+            type: object
+            properties:
+              artist:
+                type: string
+                description: Artist of album to create
+              title:
+                type: string
+                description: Title of album to create
+              image_url:
+                type: string
+                description: Image URL of album to create
+      responses:
+        201:
+          description: Successfully created album
+          schema:
+            properties:
+              album_id:
+                type: string
+                description: Id of the album
+              artist:
+                type: string
+                description: Artist of album to create
+              title:
+                type: string
+                description: Title of album to create
+              image_url:
+                type: string
+                description: Image URL of album to create
+              timestamp:
+                type: string
+                description: Creation/Update timestamp of the album record
+
+  /album/{album_id}:
+    get:
+      operationId: album.read_one
+      tags:
+        - Albums
+      summary: Read one album data
+      description: Get one album
+      parameters:
+        - name: album_id
+          in: path
+          description: Id of the album
+          type: integer
+          required: True
+      responses:
+        200:
+          description: Successfully read album
+          schema:
+            type: object
+            properties:
+              album_id:
+                type: string
+                description: Id of the album
+              artist:
+                type: string
+                description: Artist of album
+              title:
+                type: string
+                description: Title of album
+              image_url:
+                type: string
+                description: Image URL of album
+              timestamp:
+                type: string
+                description: Creation/Update timestamp of the album record
+
+    put:
+      operationId: album.update
+      tags:
+        - Albums
+      summary: Update an album
+      description: Update an album
+      parameters:
+        - name: album_id
+          in: path
+          description: Id of the album to update
+          type: integer
+          required: True
+        - name: album
+          in: body
+          schema:
+            type: object
+            properties:
+              artist:
+                type: string
+                description: Artist of album
+              title:
+                type: string
+                description: Title of album
+              image_url:
+                type: string
+                description: Image URL of album
+      responses:
+        200:
+          description: Successfully updated album
+          schema:
+            properties:
+              album_id:
+                type: string
+                description: Id of the album
+              artist:
+                type: string
+                description: Artist of album
+              title:
+                type: string
+                description: Title of album
+              image_url:
+                type: string
+                description: Image URL of album
+              timestamp:
+                type: string
+                description: Creation/Update timestamp of the album record
+
+    delete:
+      operationId: album.delete
+      tags:
+        - Albums
+      summary: Delete an album from the db
+      description: Delete an album
+      parameters:
+        - name: album_id
+          in: path
+          type: integer
+          description: Id of the album to delete
+          required: true
+      responses:
+        200:
+          description: Successfully deleted an album!

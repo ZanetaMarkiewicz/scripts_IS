@@ -1,0 +1,53 @@
+{# This simple template derives from ``base.html``. See ``base.html`` for
+more information about template inheritance. #}
+{%- extends "base.html" %}
+
+{# Loads some of the macros included with Flask-Bootstrap. We are using the
+utils module here to automatically render Flask's flashed messages in a
+bootstrap friendly manner #}
+{% import "bootstrap/utils.html" as utils %}
+
+
+{# Inside the ``content`` is where you should place most of your own stuff.
+This will keep scripts at the page end and a navbar you add on later
+intact. #}
+{% block content %}
+<div class="container">
+    {%- with messages = get_flashed_messages(with_categories=True) %}
+    {%- if messages %}
+    <div class="row">
+        <div class="col-md-12">
+            {{utils.flashed_messages(messages)}}
+        </div>
+    </div>
+    {%- endif %}
+    {%- endwith %}
+    <div class="jumbotron">
+        <h1>Welcome to iSA Music Store</h1>
+        <p>This example application demonstrates some of the
+            features of <a href="http://pythonhosted.org/Flask-Bootstrap">
+                Flask-Bootstrap</a>.</p>
+        <p>
+            <a class="btn btn-lg btn-default" href="http://pythonhosted.org/Flask-Bootstrap"
+               role="button">Show docs</a>
+        </p>
+    </div>
+    <ul>
+        {% for album in albums %}
+        <div class="display-flex">
+            <div class="col-md-4">
+                <div class="thumbnail">
+                    <img src={{ album.image_url }} style="width:1000px;height:350px;">
+                    <div class="caption">
+                        <h3>{{ album.title }}</h3>
+                        <p>
+                            This is album of {{ album.artist }} - {{ album.title }}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </ul>
+</div>
+{%- endblock %}
