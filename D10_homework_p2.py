@@ -14,8 +14,7 @@ text = """\
 </html>
 """
 
-test_email = SpamSender("isa12python@gmail.com", "isa12python@gmail.com", "iSAforever", "H10", text, "smtp.gmail.com",
-                        465)
-test_email.mail_sender()
+test_email = SpamSender("isa12python@gmail.com", "iSAforever", receiver_email)
+test_email.mail_sender("H10", text, "smtp.gmail.com", 465)
 
 print("Message has been correctly sent.")
