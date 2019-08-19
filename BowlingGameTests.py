@@ -36,4 +36,21 @@ class BowlingGameTests(TestCase):
         for i in range(17):
             self.game.roll(0)
 
-        self.assertEqual(16, self.game.score, "Should be 16")
+        self.assertEqual(16, self.game.score, "Should be 16 - spare then 3 pins down")
+
+    def test_strike_then_3_4_pins(self):
+        self.game.roll(10)
+        self.game.roll(3)
+        self.game.roll(4)
+
+        for i in range(17):
+            self.game.roll(0)
+
+        self.assertEqual(24, self.game.score, "Should be 24 - strike then 3 and 4 pins down")
+
+    def test_all_strikes(self):
+
+        for i in range(10):
+            self.game.roll(10)
+
+        self.assertEqual(300, self.game.score, "All ones should get 300 final score")
