@@ -15,16 +15,17 @@ from email.mime.multipart import MIMEMultipart
 
 
 class SpamSender(object):
-    def __init__(self, sender_email, password, receiver_email):
+    def __init__(self, sender_email, password, receiver_email, host, port):
         self.sender_email = sender_email
         self.password = password
         self.receiver_email = receiver_email
-
-    def mail_sender(self, title, text, host, port):
-        self.title = title
-        self.text = text
         self.host = host
         self.port = port
+
+    def mail_sender(self, title, text):
+        self.title = title
+        self.text = text
+
 
         for email in self.receiver_email:
             receiver_email = email
