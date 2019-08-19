@@ -50,7 +50,7 @@ class BowlingGameTests(TestCase):
 
     def test_all_strikes(self):
 
-        for i in range(10):
+        for i in range(12):
             self.game.roll(10)
 
         self.assertEqual(300, self.game.score, "All ones should get 300 final score")
